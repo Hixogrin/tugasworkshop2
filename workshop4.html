@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Registration</title>
+    <style>
+        /* Gaya untuk formulir */
+        .registration-form {
+            margin: 0 auto; /* Margin kiri dan kanan otomatis */
+            width: 500px; /* Lebar formulir 500px */
+            padding: 1em 2em; /* Padding 1em atas dan bawah, 2em kiri dan kanan */
+            border: 1px solid #CACACA; /* Garis tepi abu-abu */
+            border-radius: 10px; /* Pojok bulat */
+            font-family: Calibri, Arial, sans-serif; /* Font keluarga */
+            box-sizing: border-box; /* Menghitung ukuran form termasuk padding dan border */
+        }
+
+        /* Judul di pojok kiri atas dengan ukuran font yang lebih besar dan tebal */
+        h2 {
+            font-size: 36px; /* Ukuran font judul lebih besar */
+            font-weight: bolder; /* Membuat teks lebih tebal */
+            margin-bottom: 0.5em; /* Mengurangi jarak bawah judul agar lebih dekat dengan form */
+            text-align: left; /* Mengatur posisi teks ke kiri */
+        }
+
+        /* Gaya elemen form menggunakan Flexbox */
+        .form-group {
+            display: flex;
+            align-items: center; /* Menyelaraskan label dan input secara vertikal */
+            margin-bottom: 1em; /* Jarak antara elemen form */
+        }
+
+        label {
+            text-align: right; /* Menyusun label ke kanan */
+            width: 100px; /* Lebar label 100px */
+            margin-right: 10px;
+            vertical-align: top; /* Menyelaraskan label dengan input */
+        }
+
+        input, textarea, select {
+            width: 250px; /* Lebar input, textarea, dan dropdown 250px */
+            padding: 8px; /* Padding 8px pada input, textarea, dan dropdown */
+            margin: 4px 0; /* Margin 4px di atas dan bawah */
+            border: 1px solid #CACACA; /* Garis tepi abu-abu */
+            border-radius: 5px; /* Pojok input lebih bulat */
+            box-sizing: border-box; /* Menghitung padding dan border dalam lebar elemen */
+        }
+
+        /* Agar textarea hanya bisa diubah ukuran secara vertikal */
+        textarea {
+            resize: vertical; /* Membatasi perubahan ukuran hanya secara vertikal */
+            min-width: 250px; /* Ukuran minimal textarea */
+            height: 80px; /* Tinggi default textarea */
+        }
+
+        select {
+            height: 35px; /* Tinggi dropdown */
+        }
+
+        /* Gaya untuk tombol */
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5em; /* Menambah jarak atas */
+        }
+
+        .button-group button {
+            color: white; /* Warna teks tombol putih */
+            padding: 10px 20px; /* Padding atas bawah 10px, kiri kanan 20px */
+            width: 47%; /* Lebar tombol 47% */
+            border: none; /* Menghilangkan border */
+            border-radius: 5px; /* Pojok tombol lebih bulat */
+            cursor: pointer; /* Kursor pointer saat hover */
+            text-align: center; /* Teks berada di tengah tombol */
+        }
+
+        /* Tombol Submit */
+        .submit-btn {
+            background-color: green; /* Warna tombol hijau */
+        }
+
+        .submit-btn:hover {
+            background-color: darkgreen; /* Warna hijau lebih gelap saat hover */
+        }
+
+        /* Tombol Reset */
+        .reset-btn {
+            background-color: #C00000; /* Warna tombol merah */
+        }
+
+        .reset-btn:hover {
+            background-color: #900000; /* Warna merah lebih gelap saat hover */
+        }
+    </style>
+</head>
+<body>
+
+    <form class="registration-form" id="registrationForm">
+        <h2>Workshop Registration</h2>
+        
+        <!-- Input untuk Nama -->
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <!-- Input untuk Email -->
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <!-- Input untuk Alamat -->
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" required></textarea>
+        </div>
+
+        <!-- Dropdown untuk rentang usia -->
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <select id="age" name="age" required>
+                <option value="">- Select Age -</option>
+                <option value="under-17">under 17</option>
+                <option value="17-25">17-25</option>
+                <option value="26-35">26-35</option>
+                <option value="above-35">above 35</option>
+            </select>
+        </div>
+
+        <!-- Tombol -->
+        <div class="button-group">
+            <button type="button" class="reset-btn" onclick="resetForm()">Cancel</button>
+            <button type="submit" class="submit-btn">Submit Form</button>
+        </div>
+    </form>
+
+    <script>
+        // Fungsi untuk mereset form
+        function resetForm() {
+            document.getElementById('registrationForm').reset();
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
