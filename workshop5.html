@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Registration</title>
+    <style>
+        /* Gaya untuk formulir */
+        .registration-form {
+            margin: 0 auto;
+            width: 500px;
+            padding: 1em 2em;
+            border: 1px solid #CACACA;
+            border-radius: 10px;
+            font-family: Calibri, Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        /* Judul */
+        h2 {
+            font-size: 36px;
+            font-weight: bolder;
+            margin-bottom: 0.5em;
+            text-align: left;
+        }
+
+        /* Elemen form */
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1em;
+        }
+
+        label {
+            text-align: right;
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        .required {
+            color: red; /* Asterisk merah */
+            margin-left: 5px;
+        }
+
+        input, textarea, select {
+            width: 250px;
+            padding: 8px;
+            margin: 4px 0;
+            border: 1px solid #CACACA;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+            min-width: 250px;
+            height: 80px;
+        }
+
+        select {
+            height: 35px;
+        }
+
+        /* Gaya untuk tombol */
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5em;
+        }
+
+        .button-group button {
+            color: white;
+            padding: 10px 20px;
+            width: 47%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            background-color: green;
+        }
+
+        .submit-btn:hover {
+            background-color: darkgreen;
+        }
+
+        .reset-btn {
+            background-color: #C00000;
+        }
+
+        .reset-btn:hover {
+            background-color: #900000;
+        }
+
+        /* Pesan error */
+        .error-message {
+            color: black;
+            background-color: #EECCCC;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #CC9999;
+            border-radius: 5px;
+        }
+
+        /* Pesan sukses */
+        .success-message {
+            color: black;
+            background-color: #CCEECC;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #99CC99;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <form class="registration-form" id="registrationForm">
+        <h2>Workshop Registration</h2>
+
+        <div id="messageContainer"></div> <!-- Tempat untuk pesan error atau sukses -->
+
+        <!-- Input untuk Nama -->
+        <div class="form-group">
+            <label for="name">Name:<span class="required">*</span></label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <!-- Input untuk Email -->
+        <div class="form-group">
+            <label for="email">Email:<span class="required">*</span></label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <!-- Input untuk Alamat -->
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <textarea id="address" name="address"></textarea>
+        </div>
+
+        <!-- Dropdown untuk rentang usia -->
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <select id="age" name="age">
+                <option value="">- Select Age -</option>
+                <option value="under-17">under 17</option>
+                <option value="17-25">17-25</option>
+                <option value="26-35">26-35</option>
+                <option value="above-35">above 35</option>
+            </select>
+        </div>
+
+        <!-- Tombol -->
+        <div class="button-group">
+            <button type="button" class="reset-btn" onclick="resetForm()">Cancel</button>
+            <button type="button" class="submit-btn" onclick="validateForm()">Submit Form</button>
+        </div>
+    </form>
+
+    <script>
+        // Fungsi untuk mereset form
+        function resetForm() {
+            const form = document.getElementById('registrationForm');
+            form.reset(); // Mengosongkan input
+            document.getElementById('messageContainer').innerHTML = ""; // Menghapus pesan
+        }
+
+        // Fungsi untuk validasi form
+        function validateForm() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const messageContainer = document.getElementById('messageContainer');
+
+            messageContainer.innerHTML = ""; // Reset pesan sebelumnya
+
+            if (name === "" || email === "") {
+                const errorMessage = document.createElement('div');
+                errorMessage.className = "error-message";
+                errorMessage.textContent = "Please fill in your name and email.";
+                messageContainer.appendChild(errorMessage);
+                return false;
+            }
+
+            // Jika validasi berhasil
+            const successMessage = document.createElement('div');
+            successMessage.className = "success-message";
+            successMessage.textContent = "Form submitted successfully!";
+            messageContainer.appendChild(successMessage);
+        }
+    </script>
+
+</body>
+</html>
